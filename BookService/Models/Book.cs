@@ -15,6 +15,8 @@ namespace BookService.Models
         [Required]
         [MaxLength(30)]
         public string Name { get; set; }
+
+        [FirstOrMoreListRecordsRequired]
         public virtual IList<Author> Authors { get; set; }
 
         public string FullNames => Authors.Select(x => x.FullName).Aggregate((x,y)=> x + "\n " + y);
