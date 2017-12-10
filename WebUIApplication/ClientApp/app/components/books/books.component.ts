@@ -7,7 +7,7 @@ import { Http } from '@angular/http';
 })
 
 
-export class Books {
+export class BooksComponent {
     public books: Book[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {

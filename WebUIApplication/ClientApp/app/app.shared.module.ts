@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { FetchDataComponent } from './components/books/fetchdata/fetchdata.component';
 import { BooksComponent } from './components/books/books.component';
 import { CounterComponent } from './components/counter/counter.component';
 
@@ -15,7 +14,7 @@ import { CounterComponent } from './components/counter/counter.component';
         AppComponent,
         NavMenuComponent,
         CounterComponent,
-        FetchDataComponent
+        BooksComponent
     ],
     imports: [
         CommonModule,
@@ -23,8 +22,7 @@ import { CounterComponent } from './components/counter/counter.component';
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'books', component: BooksComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
