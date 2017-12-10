@@ -64,9 +64,17 @@ namespace BookService.Controllers
         public async Task<IActionResult> Post([FromBody]Book book)
         {
             if (book.Id == 0)
+            {
+                //todo post to authors
+                await _bookContext.Author.AddRangeAsync(book.Authors);
                 await _bookContext.Books.AddAsync(book);
+            }
             else
+            {
+                //todo post for authors
+                _bookContext.Author.UpdateRange(book.Authors);
                 _bookContext.Books.Update(book);
+            }
 
             await _bookContext.SaveChangesAsync();
             return Ok();
@@ -85,7 +93,9 @@ namespace BookService.Controllers
                 return BadRequest();
 
             _bookContext.Books.Remove(item);
+            //todo validate authors and if author without book - remove author
             await _bookContext.SaveChangesAsync();
+           
             return Ok();
         }
     }
