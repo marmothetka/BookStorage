@@ -1,0 +1,35 @@
+﻿<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!books"><em>Loading...</em></p>
+
+<table class='table' *ngIf="books">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Authors</th>
+            <th>ISBN</th>
+            <th>Pages</th>
+            <th>Year</th>
+            <th>Publisher</th>
+            <th>ISBN</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{ book.name }}</td>
+            <td>{{ book.authors }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.image }}</td>
+            <td>Edit</td>
+            <td>Remove</td>
+        </tr>
+    </tbody>
+</table>
