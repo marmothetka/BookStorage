@@ -15,11 +15,13 @@ namespace BookService.Controllers
     public class BooksController : Controller
     {
         private readonly BookContext _bookContext;
+        private readonly AuthorsController _authorsController;
 
+        //todo IBookContext and add mock-s
         public BooksController(BookContext context)
         {
             _bookContext = context ?? throw new ArgumentNullException(nameof(context));
-
+            _authorsController = new AuthorsController(_bookContext);
             ((DbContext)context).ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
@@ -61,23 +63,18 @@ namespace BookService.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]Book book)
+        public async Task Post([FromBody]Book book)
         {
             if (book.Id == 0)
             {
-                //todo post to authors
-                await _bookContext.Author.AddRangeAsync(book.Authors);
+                await _authorsController.PostAsync(book.Authors);
                 await _bookContext.Books.AddAsync(book);
             }
             else
             {
-                //todo post for authors
-                _bookContext.Author.UpdateRange(book.Authors);
+                await _authorsController.PostAsync(book.Authors);
                 _bookContext.Books.Update(book);
             }
-
-            await _bookContext.SaveChangesAsync();
-            return Ok();
         }
 
         // DELETE api/values/5

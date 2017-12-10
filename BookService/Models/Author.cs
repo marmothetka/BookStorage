@@ -20,5 +20,7 @@ namespace BookService.Models
         public string FirstName { get; set; }
 
         public string FullName => FirstName + " " + LastName;
+
+        public IList<Book> Books { get; set; }
     }
 }
