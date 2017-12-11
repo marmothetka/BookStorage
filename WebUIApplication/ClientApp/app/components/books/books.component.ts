@@ -14,6 +14,14 @@ export class BooksComponent {
         http.get(baseUrl + 'api/Books').subscribe(result => {
             this.books = result.json() as Book[];
         }, error => console.error(error));
+    };
+
+    public editBook(id: number) {
+        
+    }
+
+    public deleteBook(id: number){
+        
     }
 }
 

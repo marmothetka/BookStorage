@@ -28,8 +28,8 @@
             <td>{{ book.publisher }}</td>
             <td>{{ book.isbn }}</td>
             <td>{{ book.image }}</td>
-            <td>Edit</td>
-            <td>Remove</td>
+            <td><button (click)="editBook(book.id)"></button></td>
+            <td><button (click)="deleteBook(book.id)"></button></td>
         </tr>
     </tbody>
 </table>
