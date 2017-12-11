@@ -3,7 +3,8 @@ import { Http } from '@angular/http';
 
 @Component({
     selector: 'books',
-    templateUrl: './books.component.html'
+    templateUrl: './books.component.html',
+    moduleId: './books.module.ts'
 })
 
 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BooksComponent } from './books.component';
 
 @NgModule({
-    bootstrap: [ BooksComponent ],
     imports: [
         BooksComponent
     ],
@@ -10,7 +9,7 @@ import { BooksComponent } from './books.component';
         { provide: 'BASE_URL', useFactory: getBaseUrl }
     ]
 })
-export class AppModule {
+export class BooksModule {
 }
 
 export function getBaseUrl() {
