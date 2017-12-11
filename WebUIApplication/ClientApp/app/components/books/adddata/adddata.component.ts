@@ -1,14 +1,15 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
-import { Book } from '.\books'
+import { BooksComponent } from '../books.component'
+import { BooksModule } from '../books.module'
 
 @Component({
-    selector: 'books',
-    templateUrl: './books.component.html'
+    selector: 'add-data',
+    templateUrl: './adddata.component.html'
 })
 
 
-export class AddData {
+export class AddDataComponent {
     public book: Book;
     private _http: Http;
     private _baseUrl: string;

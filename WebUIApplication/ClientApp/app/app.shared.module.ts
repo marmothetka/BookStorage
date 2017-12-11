@@ -8,13 +8,15 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { BooksComponent } from './components/books/books.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { AddDataComponent } from './components/books/adddata/adddata.component'
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
-        BooksComponent
+        BooksComponent,
+        AddDataComponent
     ],
     imports: [
         CommonModule,
@@ -23,6 +25,7 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'books', component: BooksComponent },
+            { path: 'add-book', component: AddDataComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ]
